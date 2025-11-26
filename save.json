@@ -1,0 +1,28 @@
+{
+  "Nom": "Hugo",
+  "Classe": "ARCHER",
+  "Level": 1,
+  "XP": 0,
+  "XPMax": 50,
+  "Argent": 200,
+  "Titre": "REPOS DU HÉROS",
+  "LieuActu": "AUX CHAMPS DE BLÉ",
+  "QueteActuelle": 1,
+  "PV": 100,
+  "PVMax": 100,
+  "Mana": 15,
+  "Force": 7,
+  "Agilite": 3,
+  "Endurance": 2,
+  "Intelligence": 7,
+  "Dexterite": 4,
+  "Degats": 3,
+  "DefenseTotal": 0,
+  "Arme": [
+    "Épée"
+  ],
+  "EquipementArme": null,
+  "EquipementArmure": null,
+  "EquipementAccessoire": null,
+  "MonstreIndex": 0
+}
