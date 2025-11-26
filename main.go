@@ -2349,11 +2349,11 @@ func drawCombatScene(g *Game, screen *ebiten.Image, bg color.RGBA) {
 func (g *Game) Draw(screen *ebiten.Image) {
 	switch state {
 	case StateAccueil:
-		drawFull(screen, accueilImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "UNE HISTOIRE FOLLE", 310, medievalFont, color.White)
 		drawCenteredText(screen, "APPUYEZ SUR ESPACE POUR COMMENCER", 1000, medievalFont, color.White)
 	case StateIntro:
-		drawFull(screen, introImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "UNE ÉPOQUE FUT CONNUE SOUS LE NOM D'ÈRE DES DIEUX.", 80, medievalFont, color.White)
 		drawCenteredText(screen, "LES ILLUSTRES ÊTRES DIVINS ONT UN JOUR DISPARU,", 160, medievalFont, color.White)
 		drawCenteredText(screen, "LAISSANT LEUR MONDE À LEUR POSTÉRITÉ.", 240, medievalFont, color.White)
@@ -2367,7 +2367,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "TON DESTIN EST D'AVANCER, TE RELEVANT CHAQUE FOIS QUE TU T'ÉCROULERAS...", 960, medievalFont, color.White)
 		drawCenteredText(screen, "APPUYEZ SUR ESPACE POUR CONTINUER", 1060, medievalFont, color.White)
 	case StateStart:
-		drawFull(screen, introImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "ET PEUT-ÊTRE DISPARAÎTRAS-TU AVEC LUI.", 80, medievalFont, color.White)
 		drawCenteredText(screen, "QUELLE EST TA RAISON D'ÊTRE ?", 160, medievalFont, color.White)
 		drawCenteredText(screen, "CONFIERAS-TU TA VIE À TON ÉPÉE ?", 240, medievalFont, color.White)
@@ -2381,13 +2381,13 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "TOUS LES ENFANTS NÉS DANS CETTE CONTRÉE !", 960, medievalFont, color.White)
 		drawCenteredText(screen, "APPUYEZ SUR ESPACE POUR CONTINUER", 1060, medievalFont, color.White)
 	case StateClasse:
-		drawFull(screen, selectionImage)
+		drawBlack(screen)
 		drawCenteredText(screen, " [G] GUERRIER   [N] MAGE   [V] VOLEUR   [A] ASSASSIN   [E] ARCHER ", 860, medievalFont, color.White)
 	case StateArme:
-		drawFull(screen, selectionImage)
+		drawBlack(screen)
 		drawCenteredText(screen, " [E] ÉPÉE   [B] BAGUETTE   [C] COUTEAU DE CUISTÔT   [D] DAGUE   [A] ARC ", 860, medievalFont, color.White)
 	case StateJeu:
-		drawFull(screen, fondImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "=== UNDERWORLD - MENU PRINCIPAL ===", 80, medievalFont, color.RGBA{255, 215, 0, 255})
 		drawCenteredText(screen, fmt.Sprintf("%s | Niveau %.0f | Or: %.0f | %s", classe, level, argent, Nom), 140, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 190, medievalFont, color.White)
@@ -2411,7 +2411,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "------------------------------------------------------------", 810, medievalFont, color.White)
 		drawCenteredText(screen, fmt.Sprintf("Lieu actuel: %s", lieuactu), 870, medievalFont, color.RGBA{255, 255, 100, 255})
 	case StateLieu:
-		drawFull(screen, fondImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "CHOISIS UN LIEU", 200, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 250, medievalFont, color.White)
 		drawCenteredText(screen, "[C] CHAMPS DE BLÉ  [F] FORGE  [T] TOUR DE SORCIER", 360, medievalFont, color.White)
@@ -2419,7 +2419,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "------------------------------------------------------------", 510, medievalFont, color.White)
 		drawCenteredText(screen, "[ECHAP] RETOUR", 900, medievalFont, color.White)
 	case StateStat:
-		drawFull(screen, statImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "=== STATISTIQUES DU PERSONNAGE ===", 100, medievalFont, color.RGBA{255, 215, 0, 255})
 		drawCenteredText(screen, fmt.Sprintf("%s | Niveau %.0f | XP: %.0f/%.0f", classe, level, xp, xpMax), 160, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 210, medievalFont, color.White)
@@ -2508,7 +2508,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 
 		}
 	case StateChamps:
-		drawFull(screen, champImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "VOUS ÊTES AUX CHAMPS DE BLÉ ", 200, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 280, medievalFont, color.White)
 		drawCenteredText(screen, fmt.Sprintf("[L] LABOURER (FORCE+) : %.2f", force), 400, medievalFont, color.White)
@@ -2518,7 +2518,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "------------------------------------------------------------", 880, medievalFont, color.White)
 		drawCenteredText(screen, "[ECHAP] RETOUR", 960, medievalFont, color.White)
 	case StateTour:
-		drawFull(screen, tourImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "VOUS ÊTES À LA TOUR DE SORCIER ", 200, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 280, medievalFont, color.White)
 		drawCenteredText(screen, fmt.Sprintf("[L] LIRE (INT+) : %.2f", intelligence), 420, medievalFont, color.White)
@@ -2528,7 +2528,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "------------------------------------------------------------", 880, medievalFont, color.White)
 		drawCenteredText(screen, "[ECHAP] RETOUR", 960, medievalFont, color.White)
 	case StateForge:
-		drawFull(screen, forgeImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "VOUS ÊTES À LA FORGE ", 200, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 280, medievalFont, color.White)
 		drawCenteredText(screen, fmt.Sprintf("[L] COMPOSITION (INT+) : %.2f", intelligence), 420, medievalFont, color.White)
@@ -2538,7 +2538,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "------------------------------------------------------------", 880, medievalFont, color.White)
 		drawCenteredText(screen, "[ECHAP] RETOUR", 960, medievalFont, color.White)
 	case StateInventaire:
-		drawFull(screen, inventaireImage)
+		drawBlack(screen)
 		if len(arme) == 0 {
 			drawCenteredText(screen, "(Vide)", 400, medievalFont, color.Black)
 		} else {
@@ -2551,7 +2551,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "UTILISER ITEM: [0-9] (En combat, les potions servent d'action)", 920, medievalFont, color.White)
 
 	case StateHotel:
-		drawFull(screen, hotelImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "VOUS ÊTES À L'HÔTEL DE VILLE ", 200, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 280, medievalFont, color.White)
 		drawCenteredText(screen, fmt.Sprintf("[L] REGISTRES (INT+)%.2f", intelligence), 420, medievalFont, color.White)
@@ -2561,7 +2561,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "------------------------------------------------------------", 880, medievalFont, color.White)
 		drawCenteredText(screen, "[ECHAP] RETOUR", 960, medievalFont, color.White)
 	case StateSortie:
-		drawFull(screen, sortieImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "VOUS ÊTES À LA GRANDE PORTE ", 200, medievalFont, color.White)
 		drawCenteredText(screen, "------------------------------------------------------------", 280, medievalFont, color.White)
 		drawCenteredText(screen, "[C] SORTIR COMBATTRE DES MONSTRES ", 480, medievalFont, color.White)
@@ -2617,11 +2617,11 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "[E] ÉQUIPER MAINTENANT", 740, medievalFont, color.RGBA{100, 255, 100, 255})
 		drawCenteredText(screen, "[N] GARDER DANS L'INVENTAIRE", 810, medievalFont, color.RGBA{200, 200, 200, 255})
 	case StateBackLife:
-		drawFull(screen, mortImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "------------------------- VOUS ÊTES MORT -------------------------", 80, medievalFont, color.White)
 		drawCenteredText(screen, "APPUYEZ SUR [ECHAP] POUR REVENIR À LA VIE A 1/2 DE VOS PV MAX", 720, medievalFont, color.White)
 	case StatePause:
-		drawFull(screen, pauseImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "PAUSE", 160, medievalFont, color.White)
 		drawCenteredText(screen, "[J] REPRENDRE", 1000, medievalFont, color.White)
 	case StateForet:
@@ -2629,11 +2629,11 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, " COMBATTRE [C]", 480, medievalFont, color.White)
 		drawCenteredText(screen, "FUIR [F]", 620, medievalFont, color.White)
 	case StateVictoire:
-		drawFull(screen, victoireImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "[ESPACE] CONTINUER  ", 1000, medievalFont, color.White)
 
 	case StateResultat:
-		drawFull(screen, resultatImage)
+		drawBlack(screen)
 		drawCenteredText(screen, "BUTIN OBTENU :", 80, medievalFont, color.Black)
 
 		if dernierLoot != "" {
@@ -2642,7 +2642,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 
 		drawCenteredText(screen, "[ESPACE] CONTINUER  ", 1000, medievalFont, color.Black)
 	case StateDefaite:
-		drawFull(screen, defaiteImage)
+		drawBlack(screen)
 	case StateCombat:
 		if queteActuelle == 1 {
 			drawFull(screen, fondqueteImage)
@@ -2719,15 +2719,15 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		}
 
 	case StateHistoire1:
-		drawFull(screen, histoire1Image)
+		drawBlack(screen)
 		text.Draw(screen, "On raconte qu’il y a cent ans, notre cité fut bâtie sur les ruines d’un temple oublié.", medievalFont, WinW-1200, 60, color.Black)
-		text.Draw(screen, "Les pierres de ses fondations portent encore les symboles des anciens dieux,", medievalFont, WinW-1200, 120, color.Black)
+		text.Draw(screen, "Les pierres de ses fondations portent encore les symboles des anciens dieux,", medievalFont, WinW-1200, 120, color.White)
 		text.Draw(screen, "et certains disent qu’elles veillent toujours sur nous", medievalFont, WinW-1200, 180, color.Black)
 		text.Draw(screen, "C’est peut-être pour cela que, malgré les guerres et les famines, notre ville n’a jamais plié.", medievalFont, WinW-1200, 240, color.Black)
 		drawCenteredText(screen, "[ESPACE] CONTINUER  ", 1000, medievalFont, color.White)
 
 	case StateHistoire2:
-		drawFull(screen, histoire2Image)
+		drawBlack(screen)
 		text.Draw(screen, "Mon Petit, nul ne protège mieux notre cité que moi, Le Grand Mage Hugo,", medievalFont, WinW-1000, 60, color.White)
 		text.Draw(screen, "gardien des arcanes et dernier héritier du savoir des anciens prêtres.", medievalFont, WinW-1000, 120, color.White)
 		text.Draw(screen, "On dit qu’il converse encore avec les esprits du temple,", medievalFont, WinW-1000, 180, color.White)
@@ -2735,7 +2735,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "[ESPACE] CONTINUER  ", 1000, medievalFont, color.White)
 
 	case StateHistoire3:
-		drawFull(screen, histoire3Image)
+		drawBlack(screen)
 		text.Draw(screen, "Parmi ceux qui protègent notre cité, nul n’est plus respecté que le Maître Forgeron.", medievalFont, WinW-1800, 700, color.White)
 		text.Draw(screen, "Ses mains ont façonné les lames qui ont repoussé les hordes venues des ténèbres,", medievalFont, WinW-1800, 750, color.White)
 		text.Draw(screen, "et chaque coup de son marteau résonne comme un serment de protection.", medievalFont, WinW-1800, 800, color.White)
@@ -2758,14 +2758,14 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		drawCenteredText(screen, "[ESPACE] CONTINUER  ", 1000, medievalFont, color.RGBA{R: 255, G: 215, B: 0, A: 255})
 
 	case StateCredit:
-		drawFull(screen, creditImage)
-		text.Draw(screen, "EVAN FEAT MIEL POPS", medievalFont, 200, 550, color.Black)
+		drawBlack(screen)
+		text.Draw(screen, "EVAN FEAT MIEL POPS", medievalFont, 200, 550, color.White)
 		text.Draw(screen, "GEOGEO EST SON VRAI BLAZE ", medievalFont, 200, 650, color.Black)
 		text.Draw(screen, "HUGO LE SINGE SAVANT ", medievalFont, 200, 750, color.Black)
 		drawCenteredText(screen, "[ESPACE] RETOUR  ", 1000, medievalFont, color.Black)
 
 	case StateEquipement:
-		drawFull(screen, fondequipementImage)
+		drawBlack(screen)
 		text.Draw(screen, fmt.Sprintf("Casque : %v", slotToString(equipSlots.Casque)), medievalFont, 300, 280, color.White)
 		text.Draw(screen, "[1] Équiper / Déséquiper casque", medievalFont, 300, 340, color.White)
 		text.Draw(screen, fmt.Sprintf("Plastron : %v", slotToString(equipSlots.Armure)), medievalFont, 300, 420, color.White)
@@ -3056,6 +3056,10 @@ func drawFull(screen *ebiten.Image, img *ebiten.Image) {
 	screen.DrawImage(img, op)
 }
 
+func drawBlack(screen *ebiten.Image) {
+	screen.Fill(color.RGBA{10, 10, 20, 255}) // Fond bleu très foncé pour moins de fatigue visuelle
+}
+
 func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
 	return WinW, WinH
 }
@@ -3103,40 +3107,17 @@ func mustLoad(path string) *ebiten.Image {
 	return img
 }
 
-func InitAccueil(path string)        { accueilImage = mustLoad(path) }
-func InitIntro(path string)          { introImage = mustLoad(path) }
-func InitSelection(path string)      { selectionImage = mustLoad(path) }
-func InitChamp(path string)          { champImage = mustLoad(path) }
-func InitShop(path string)           { shopImage = mustLoad(path) }
-func InitStat(path string)           { statImage = mustLoad(path) }
-func InitInventaire(path string)     { inventaireImage = mustLoad(path) }
-func InitTour(path string)           { tourImage = mustLoad(path) }
-func InitForge(path string)          { forgeImage = mustLoad(path) }
-func InitHotel(path string)          { hotelImage = mustLoad(path) }
-func InitSortie(path string)         { sortieImage = mustLoad(path) }
-func InitPause(path string)          { pauseImage = mustLoad(path) }
-func InitMort(path string)           { mortImage = mustLoad(path) }
-func InitForet(path string)          { foretImage = mustLoad(path) }
-func InitVictoire(path string)       { victoireImage = mustLoad(path) }
-func InitDefaite(path string)        { defaiteImage = mustLoad(path) }
-func InitResultat(path string)       { resultatImage = mustLoad(path) }
-func InitQuete(path string)          { fondqueteImage = mustLoad(path) }
-func InitMCombat(path string)        { mcombatImage = mustLoad(path) }
-func InitGCombat(path string)        { gcombatImage = mustLoad(path) }
-func InitVCombat(path string)        { vcombatImage = mustLoad(path) }
-func InitACombat(path string)        { acombatImage = mustLoad(path) }
-func InitECombat(path string)        { ecombatImage = mustLoad(path) }
-func InitHistoire1(path string)      { histoire1Image = mustLoad(path) }
-func InitHistoire2(path string)      { histoire2Image = mustLoad(path) }
-func InitHistoire3(path string)      { histoire3Image = mustLoad(path) }
-func InitCredit(path string)         { creditImage = mustLoad(path) }
-func InitFondequipement(path string) { fondequipementImage = mustLoad(path) }
-func Initfond(path string)           { fondImage = mustLoad(path) }
-func InitJeu(path string)            { jeuImage = mustLoad(path) }
-func InitArtisant(path string)       { artisantImage = mustLoad(path) }
-func InitCombat(path string)         { combatImage = mustLoad(path) }
-func InitQuete2(path string)         { fondquete2Image = mustLoad(path) }
-func InitQuete3(path string)         { fondquete3Image = mustLoad(path) }
+// Fonctions Init pour les images encore utilisées
+func InitShop(path string)    { shopImage = mustLoad(path) }
+func InitForet(path string)   { foretImage = mustLoad(path) }
+func InitQuete(path string)   { fondqueteImage = mustLoad(path) }
+func InitQuete2(path string)  { fondquete2Image = mustLoad(path) }
+func InitQuete3(path string)  { fondquete3Image = mustLoad(path) }
+func InitMCombat(path string) { mcombatImage = mustLoad(path) }
+func InitGCombat(path string) { gcombatImage = mustLoad(path) }
+func InitVCombat(path string) { vcombatImage = mustLoad(path) }
+func InitACombat(path string) { acombatImage = mustLoad(path) }
+func InitECombat(path string) { ecombatImage = mustLoad(path) }
 
 // ---------------------------- MAIN ----------------------------
 
@@ -3162,39 +3143,17 @@ func main() {
 		medievalFont = basicfont.Face7x13
 	}
 
-	// load UI images (non-fatal)
-	InitQuete("image/quete1.png")
-	InitAccueil("image/accueil.png")
-	InitIntro("image/intro.png")
-	InitSelection("image/selection.png")
-	InitChamp("image/champ.png")
+	// Charger les images essentielles (boutique, forêt, quêtes, combat)
 	InitShop("image/shop.png")
-	InitStat("image/stats.png")
-	InitTour("image/tour.png")
-	InitHotel("image/hotel.png")
-	InitForge("image/forge.png")
-	InitSortie("image/sortie.png")
-	InitInventaire("image/inventaire.png")
-	InitPause("image/pause.png")
-	InitMort("image/mort.png")
 	InitForet("image/foret.png")
-	InitVictoire("image/victoire.png")
-	InitResultat("image/resultat.png")
-	InitDefaite("image/defaite.png")
-	Initfond("image/fond.png")
-	InitHistoire1("image/histoire1.png")
-	InitHistoire2("image/histoire2.png")
-	InitHistoire3("image/histoire3.png")
-	InitCredit("image/credit.png")
-
+	InitQuete("image/quete1.png")
+	InitQuete2("image/quete2.png")
+	InitQuete3("image/quete3.png")
 	InitGCombat("image/gcombat.png")
 	InitMCombat("image/mcombat.png")
 	InitECombat("image/ecombat.png")
 	InitVCombat("image/vcombat.png")
 	InitACombat("image/acombat.png")
-	InitFondequipement("image/fondequipement.png")
-	InitQuete2("image/quete2.png")
-	InitQuete3("image/quete3.png")
 
 	// Initialiser les systèmes de jeu
 	initQuetes()
